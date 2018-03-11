@@ -1,0 +1,62 @@
+body {
+   font-size: 110%;
+   font-family: 'Montserrat', sans-serif;
+   padding-bottom: 2%;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+   font-size: 1.5em;
+   font-weight: 800;
+   padding-top: 20px;
+}
+
+#about-header, #interests-header, #projects-header{
+   font-family: 'Oswald', sans-serif;
+   font-size: 2.5em;
+}
+
+header {
+   font-size: 1.15em;
+   font-style: italic;
+   font-weight: 500;
+   padding-top: 15px;
+   padding-bottom: 5px;
+}
+
+#about-me, #interests, #projects{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 8vh;
+    padding-right: 15vw;
+    padding-left: 15vw;
+    padding-bottom: 0px;
+}
+
+#about-desc, #projects-desc, #interests-desc{
+   padding-left: 1.5%;
+   border-left: solid #4ca1af;
+}
+
+#profile {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   border: solid #4ca1af;
+   border-radius: 50%; 
+}
+
+#highlight-text-1, #highlight-text-2, #highlight-text-3 {
+   border-radius: 3px;
+}
+
+#highlight-text-1:hover, #highlight-text-2:hover, #highlight-text-3:hover {
+   opacity: .7;
+}
+
+#github, #linkedin {
+   padding-left: 3px;
+}
