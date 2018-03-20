@@ -12,6 +12,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    <script type="text/javascript" src="main.js"></script>
+   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 
    <link href="https://fonts.googleapis.com/css?family=Montserrat|Oswald" rel="stylesheet">
 
@@ -20,6 +23,16 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
    <link href="default.css" rel="stylesheet">
+
+   <style>
+        #map { width: 100%;
+               max-width: 100%; 
+               height: 300px; }
+        #map-div {
+          text-decoration: underline;
+          font-weight: 800;
+        }
+   </style>
 
 </head>
 
@@ -42,7 +55,7 @@
 
     <div class="navbar navbar-toggleable-md navbar-inverse fixed-bottom bg-inverse justify-content-start">
          <img id="email" class="navbarIcon" src="images/email.png" data-toggle="tooltip" alt="EMAIL ME" height=50 width=50 title="Email" onclick="window.open('mailto:mjcraney@calpoly.edu');">
-         <img id="linkedin" class="navbarIcon" src="images/linkedin.jpg" data-toggle="tooltip" alt="LinkedIn" height=50 width=50 title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/malcolm-craney-4a5491119/', '_blank');">
+         <img id="linkedin" class="navbarIcon" src="images/linkedin.png" data-toggle="tooltip" alt="LinkedIn" height=50 width=50 title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/malcolm-craney-4a5491119/', '_blank');">
          <img id="github" class="navbarIcon" src="images/github.png" data-toggle="tooltip" alt="Github" height=50 width=50 title="Github" onclick="window.open('https://github.com/malcolmjc', '_blank');">
     </div>
 
@@ -50,7 +63,7 @@
       <div class="row">
          <div class="col-md-12" id="about-me">
             <div id="about-header" class="col-md-6">About Me</div>
-            <img src="images/004.jpg" id="profile" height="200" width="200">
+            <img src="images/ME.jpg" id="profile" height="200" width="200">
             <br>
             <div id="about-desc">
             I'm Malcolm Craney, a third-year Software Engineering student at Cal Poly in San Luis Obispo. When I'm not in California, you will likely find me in my hometown of Portland, OR. I originally started my career here at college in a different major, but realized my passion and appreciation for programming, computer science, and the mathematics behind it. Chances are if you are reading this website you're reviewing me as a prospective candidate for a position, so I hope this provides you with a more holistic depiction of myself both as a programmer and as a person.
@@ -70,8 +83,18 @@
                  <section class="python">Python</section>
                  <div id="python-desc">
                    <header>Web Data Extraction</header>
-                   Visualizing and analyzing using Python and oftentimes JSON data.
+                   Visualizing and analyzing using JSON data and Python.
                  </div>
+                 <div id="map-div">
+                      Example - IP location data of users who have visited this website:
+                      <iframe allowtransparency="true" frameborder="0" scrolling="0" width="90" height="20"></iframe>
+                  </div>
+
+                  <div id="map"></div>
+
+                  <script src="LocationData/leaflet-heat.js"></script>
+                  <script src="LocationData/locations.js"></script>
+                  <script src="LocationData/map.js"></script>
                </div>
 
 
@@ -142,14 +165,14 @@
                   <header>Central Coast</header>
                   Living in San Luis Obispo while attending college gives me great opportunities to hike and appreciate nature. 
                   <div id="images-ca">
-                    <img src="images/hiking_pic.jpg" class="img-fluid" alt="Hiking at Montana de Oro" id="beach-pic" title="Montana de Oro">
-                    <img src="images/waterfall.jpg" class="img-fluid" alt="Waterfall at Ragged Point" id="waterfall-pic" title="Big Sur Waterfall">
+                    <img src="images/hiking_pic.jpg" alt="Hiking at Montana de Oro" height="300" width="400" id="beach-pic" title="Montana de Oro">
+                    <img src="images/waterfall.jpg" alt="Waterfall at Ragged Point" height="300" width="200" id="waterfall-pic" title="Big Sur Waterfall">
                   </div>
                   <header>Pacific Northwest</header>
                   I've hiked all over Oregon and Southern Washington, including nearly every spot within the greater Portland area.
                   <div id="images-pnw">
-                    <img src="images/tryoncreek.jpg" class="img-fluid" alt="Green landscape at Tryon Creek" title="Tryon Creek">
-                    <img src="images/wash_hike.jpg" class="img-fluid" alt="Underneath a Waterfall at the Gorge" title="The Gorge">
+                    <img src="images/tryoncreek.jpg" alt="Green landscape at Tryon Creek" height="300" width="400" title="Tryon Creek">
+                    <img src="images/wash_hike.jpg" alt="Underneath a Waterfall at the Gorge" height="300" width="200" title="The Gorge">
                   </div>
                </div>
 
@@ -163,13 +186,13 @@
                     Visiting and experiencing the various cultures of our world is very important to me. Thus far I've been fortunate enough
                     to visit Spain, Costa Rica, and Mexico. I'd love to visit more of Europe in the future.
                     <div id="images-spain">
-                      <img src="images/fountain.jpg" class="img-fluid" alt="A fountain in Spain" title="Spain Fountain">
-                      <img src="images/sagrada_familia.jpg" class="img-fluid" alt="The Sagrada Familia in Barcelona" title="La Sagrada Familia">
+                      <img src="images/fountain.jpg" alt="A fountain in Spain" height="300" width="400" title="Spain Fountain">
+                      <img src="images/sagrada_familia.jpg" alt="The Sagrada Familia in Barcelona" height="300" width="200" title="La Sagrada Familia">
                     </div>
                 <header>U.S.</header>
                     The majority of my traveling within the US has been limited to the West Coast, but I've been as far east as Chicago and way out west to Hawaii.
                     <div id="images-chi">
-                       <img src="images/chicago.jpg" class="img-fluid" alt="The Chicago River" title="Chicago River"></a>
+                       <img src="images/chicago.jpg" alt="The Chicago River" height="320" width="240" title="Chicago River"></a>
                      </div>
 
 
