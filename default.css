@@ -142,6 +142,10 @@ a, a:hover, a:focus {
   cursor: pointer;
 }
 
+a:hover {
+  opacity: .7;
+}
+
 #sidebar.active div h2 {
   display: none;
 }

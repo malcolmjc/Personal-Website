@@ -49,80 +49,24 @@ $(document).ready(function () {
     setTimeout(() => {
         $("#github-img").show(500);
     }, 900);
-
+    
     let pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page"), $("#interests-page") ];
     let pageLinks = [ $("#about"), $("#experience"), $("#projects"), $("#interests") ];
 
     $("#about").click(() => {
-        for (let i = 0; i < pagesArr.length; i++) {
-            if (i != pagesEnum.about) {
-                pagesArr[i].hide();
-                pageLinks[i].css("color", "#fff");
-                pageLinks[i].css("background",  "#4ca1af");
-            }
-
-            else {
-                pagesArr[i].show();
-                pageLinks[i].css("color", "#4ca1af");
-                pageLinks[i].css("background", "#fff");
-                document.title = "About Me";
-            }
-        }
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        switchPage(pagesEnum.about, "About Me", pagesArr, pageLinks);
     });
 
     $("#interests").click(() => {
-        for (let i = 0; i < pagesArr.length; i++) {
-            if (i != pagesEnum.interests) {
-                pagesArr[i].hide();
-                pageLinks[i].css("color", "#fff");
-                pageLinks[i].css("background",  "#4ca1af");
-            }
-
-            else {
-                pagesArr[i].show();
-                pageLinks[i].css("color", "#4ca1af");
-                pageLinks[i].css("background", "#fff");
-                document.title = "My Interests";
-            }
-        }
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        switchPage(pagesEnum.interests, "My Interests", pagesArr, pageLinks);
     });
 
     $("#projects").click(() => {
-        for (let i = 0; i < pagesArr.length; i++) {
-            if (i != pagesEnum.projects) {
-                pagesArr[i].hide();
-                pageLinks[i].css("color", "#fff");
-                pageLinks[i].css("background",  "#4ca1af");
-            }
-
-            else {
-                pagesArr[i].show();
-                pageLinks[i].css("color", "#4ca1af");
-                pageLinks[i].css("background", "#fff");
-                document.title = "My Projects";
-            }
-        }
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        switchPage(pagesEnum.projects, "My Projects", pagesArr, pageLinks);
     });
 
     $("#experience").click(() => {
-        for (let i = 0; i < pagesArr.length; i++) {
-            if (i != pagesEnum.experience) {
-                pagesArr[i].hide();
-                pageLinks[i].css("color", "#fff");
-                pageLinks[i].css("background",  "#4ca1af");
-            }
-
-            else {
-                pagesArr[i].show();
-                pageLinks[i].css("color", "#4ca1af");
-                pageLinks[i].css("background", "#fff");
-                document.title = "My Experience";
-            }
-        }
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        switchPage(pagesEnum.experience, "My Experience", pagesArr, pageLinks);
     });
 
     if (/Mobi|Android/i.test(navigator.userAgent) || screen.width <= 575) {
@@ -149,3 +93,21 @@ $(document).ready(function () {
         }
     });
 });
+
+function switchPage(page, pageTitle, pagesArr, pageLinks) {
+    for (let i = 0; i < pagesArr.length; i++) {
+        if (i != page) {
+            pagesArr[i].hide();
+            pageLinks[i].css("color", "#fff");
+            pageLinks[i].css("background",  "#4ca1af");
+        }
+
+        else {
+            pagesArr[i].show();
+            pageLinks[i].css("color", "#4ca1af");
+            pageLinks[i].css("background", "#fff");
+            document.title = pageTitle;
+        }
+    }
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+}
