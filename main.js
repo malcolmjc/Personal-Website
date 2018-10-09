@@ -69,13 +69,15 @@ $(document).ready(function () {
         switchPage(pagesEnum.experience, "My Experience", pagesArr, pageLinks);
     });
 
+    let sections = $(".section");
+
     if (/Mobi|Android/i.test(navigator.userAgent) || screen.width <= 575) {
         console.log("User on mobile device");
         console.log("Disabling sidebar expansion");
+    
+        mobileSidebar(sections);
         return;
     }
-
-    let sections = $(".section");
 
     $("#sidebar").hover(() => {
         $("#sidebar").addClass("inactive");
@@ -93,6 +95,54 @@ $(document).ready(function () {
         }
     });
 });
+
+function mobileSidebar(sections, pageLinks) {
+    //remove margin from normal sidebar
+    for (let i = 0; i < sections.length; i++) {
+        $(sections[i]).css("margin-left", '0px');
+    }
+
+    $("#large-name").css("text-align", "left");
+    $('#mobile-button').show();
+    $('#sidebar').hide();
+    $('#sidebar').addClass('inactive');
+    $('#sidebar').removeClass('active');
+
+    $('#sidebar').css('width', '100%');
+
+    //if link is clicked close sidebar
+    $('.inpage-link').on('click', function() {
+        $('#sidebar').hide()
+        //enable scrolling
+        document.ontouchmove = function(e){ 
+            return true;
+        }
+
+        $('.animated-icon1').toggleClass('open');
+    });
+
+    $('.navbar-toggler').on('click', function () {
+        if ($("#sidebar").is(':hidden')) {
+            //prevent scrolling
+            document.ontouchmove = function(e){ 
+                e.preventDefault(); 
+            }
+            $("#sidebar").show();
+        }
+
+        else {
+            $('#sidebar').hide();
+
+            //enable scrolling
+            document.ontouchmove = function(e){ 
+                return true;
+            }
+        }
+
+        $('.animated-icon1').toggleClass('open');
+        
+    });
+}
 
 function switchPage(page, pageTitle, pagesArr, pageLinks) {
     for (let i = 0; i < pagesArr.length; i++) {
