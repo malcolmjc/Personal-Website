@@ -1,96 +1,151 @@
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
+let pagesEnum = Object.freeze({"about":0, "experience":1, "projects":2, "interests":3});
+const sidebarClosedWidth=80, sidebarOpenWidth=196;
 
-document.addEventListener('DOMContentLoaded', function() {
-    const ht1 = document.getElementById('highlight-text-1');
-    const ht2 = document.getElementById('highlight-text-2');
-    const ht3 = document.getElementById('highlight-text-3');
+$(document).ready(function () {
 
-    const ht1Wrapper = document.getElementById('text-1-wrapper');
-    const ht2Wrapper = document.getElementById('text-2-wrapper');
-    const ht3Wrapper = document.getElementById('text-3-wrapper');
+    $("#about").css("color", "#4ca1af");
+    $("#about").css("background", "#fff");
 
-    const about = document.getElementById('about-me');
-    const projects = document.getElementById('projects');
-    const interests = document.getElementById('interests');
+    $('[data-toggle="tooltip"]').tooltip();
 
-    //Initial highlighted text is About
-    highlightText(ht1);
-
-    ht1Wrapper.addEventListener('click', function() { 
-        highlightOneResetOthers(1);
+    $("#email-img").hover(() => {
+        $("#email-img").css("height", 65);
+        $("#email-img").css("width", 65);
     });
 
-    ht2Wrapper.addEventListener('click', function() {
-        highlightOneResetOthers(2); 
+    $("#email-img").mouseleave(() => {
+        $("#email-img").css("height", 50);
+        $("#email-img").css("width", 50);
     });
 
-    ht3Wrapper.addEventListener('click', function() { 
-        highlightOneResetOthers(3);
+    $("#github-img").hover(() => {
+        $("#github-img").css("height", 65);
+        $("#github-img").css("width", 65);
     });
 
-    projects.addEventListener('mouseenter', function() {
-        highlightOneResetOthers(2);
+    $("#github-img").mouseleave(() => {
+        $("#github-img").css("height", 50);
+        $("#github-img").css("width", 50);
     });
 
-    interests.addEventListener('mouseenter', function() {
-        highlightOneResetOthers(3);
+    $("#linkedin-img").hover(() => {
+        $("#linkedin-img").css("height", 65);
+        $("#linkedin-img").css("width", 65);
     });
 
-    about.addEventListener('mouseenter', function() {
-        highlightOneResetOthers(1);
+    $("#linkedin-img").mouseleave(() => {
+        $("#linkedin-img").css("height", 50);
+        $("#linkedin-img").css("width", 50);
     });
-});
 
-function highlightOneResetOthers(number) {
-    const ht1 = document.getElementById('highlight-text-1');
-    const ht2 = document.getElementById('highlight-text-2');
-    const ht3 = document.getElementById('highlight-text-3');
+    setTimeout(() => {
+        $("#email-img").show(500);
+    }, 300);
 
-    if (number == 1) {
-        highlightText(ht1);
-        resetText(ht2);
-        resetText(ht3);
+    setTimeout(() => {
+        $("#linkedin-img").show(500);
+    }, 600);
+
+    setTimeout(() => {
+        $("#github-img").show(500);
+    }, 900);
+
+    let pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page"), $("#interests-page") ];
+    let pageLinks = [ $("#about"), $("#experience"), $("#projects"), $("#interests") ];
+
+    $("#about").click(() => {
+        for (let i = 0; i < pagesArr.length; i++) {
+            if (i != pagesEnum.about) {
+                pagesArr[i].hide();
+                pageLinks[i].css("color", "#fff");
+                pageLinks[i].css("background",  "#4ca1af");
+            }
+
+            else {
+                pagesArr[i].show();
+                pageLinks[i].css("color", "#4ca1af");
+                pageLinks[i].css("background", "#fff");
+                document.title = "About Me";
+            }
+        }
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+
+    $("#interests").click(() => {
+        for (let i = 0; i < pagesArr.length; i++) {
+            if (i != pagesEnum.interests) {
+                pagesArr[i].hide();
+                pageLinks[i].css("color", "#fff");
+                pageLinks[i].css("background",  "#4ca1af");
+            }
+
+            else {
+                pagesArr[i].show();
+                pageLinks[i].css("color", "#4ca1af");
+                pageLinks[i].css("background", "#fff");
+                document.title = "My Interests";
+            }
+        }
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+
+    $("#projects").click(() => {
+        for (let i = 0; i < pagesArr.length; i++) {
+            if (i != pagesEnum.projects) {
+                pagesArr[i].hide();
+                pageLinks[i].css("color", "#fff");
+                pageLinks[i].css("background",  "#4ca1af");
+            }
+
+            else {
+                pagesArr[i].show();
+                pageLinks[i].css("color", "#4ca1af");
+                pageLinks[i].css("background", "#fff");
+                document.title = "My Projects";
+            }
+        }
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+
+    $("#experience").click(() => {
+        for (let i = 0; i < pagesArr.length; i++) {
+            if (i != pagesEnum.experience) {
+                pagesArr[i].hide();
+                pageLinks[i].css("color", "#fff");
+                pageLinks[i].css("background",  "#4ca1af");
+            }
+
+            else {
+                pagesArr[i].show();
+                pageLinks[i].css("color", "#4ca1af");
+                pageLinks[i].css("background", "#fff");
+                document.title = "My Experience";
+            }
+        }
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    });
+
+    if (/Mobi|Android/i.test(navigator.userAgent) || screen.width <= 575) {
+        console.log("User on mobile device");
+        console.log("Disabling sidebar expansion");
+        return;
     }
 
-    else if (number == 2) {
-        highlightText(ht2);
-        resetText(ht1);
-        resetText(ht3);
-    }
+    let sections = $(".section");
 
-    else {
-        highlightText(ht3);
-        resetText(ht2);
-        resetText(ht1);
-    }
-}
+    $("#sidebar").hover(() => {
+        $("#sidebar").addClass("inactive");
+        $("#sidebar").removeClass("active");
+        for (let i = 0; i < sections.length; i++) {
+            $(sections[i]).css("margin-left", '' + sidebarOpenWidth + 'px');
+        }
+    });
 
-$(window).scroll(function() {
-    if ($(this).scrollTop() < 660)
-        highlightOneResetOthers(1);
-    
-    if ($(this).scrollTop() > 660)
-        highlightOneResetOthers(2);
-
-    if ($(this).scrollTop() > 1700)
-        highlightOneResetOthers(3);
+    $("#sidebar").mouseleave(() => {
+        $("#sidebar").addClass("active");
+        $("#sidebar").removeClass("inactive");
+        for (let i = 0; i < sections.length; i++) {
+            $(sections[i]).css("margin-left", '' + sidebarClosedWidth + 'px');
+        }
+    });
 });
-
-
-function highlightText(element) {
-    element.style.backgroundColor = "white";
-    element.style.color = "black";
-    element.style.paddingLeft = "5px";
-    element.style.paddingRight = "5px";
-    element.style.border = "1px solid #D0D0D0";
-}
-
-function resetText(element) {
-    element.style.backgroundColor = "";
-    element.style.color = "";
-    element.style.paddingLeft = "";
-    element.style.paddingRight = "";
-    element.style.border = "";
-}
