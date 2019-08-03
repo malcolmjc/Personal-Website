@@ -1,0 +1,25 @@
+.project-card {
+  background-color: #4ca1af;
+  color: #ffff;
+  border-radius: 25px;
+  text-align: center;
+  padding: 2.5%;
+  margin: 2.5%;
+  cursor: pointer;
+}
+
+.tech-img {
+  max-width: 30%;
+  height: 80px;
+}
+
+.tech-img-50 {
+  max-width: 45%;
+  height: 80px;
+  padding-right: 2.5%;
+  padding-left: 2.5%;
+}
+
+.project-card-header {
+  font-size: 200%;
+}
