@@ -1,21 +1,10 @@
-#surescripts-logo, #gap-logo, #jc-penney-logo {
+.company-logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-#retail-desc, .company-logo, #surescripts-head, #retail-head {
   margin-bottom: 3.5vh;
 }
 
-#surescripts-logo {
-  padding-top: 4vh;
-}
-
-#dvi {
-  padding-top: 5vh;
-}
-
-#dvi-desc {
-  margin-top: 3vh;
+.experience-desc {
+  margin-bottom: 2rem;
 }

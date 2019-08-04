@@ -1,8 +1,9 @@
 function setupBottomBar() {
   $('[data-toggle="tooltip"]').tooltip();
 
-  const bottomBarImages =  [ $("#email-img"), $("#github-img"), $("#linkedin-img") ];
-  bottomBarImages.forEach((image, index) => {
+  const bottomBarImages = $(".bottom-bar-img");
+  $.each((bottomBarImages), (index, image) => {
+    image = $(image);
     let hovered = false;
     const smallSize = 50, largeSize = 65;
     
