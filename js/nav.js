@@ -2,10 +2,10 @@ const PagesEnum = Object.freeze({ "ABOUT": 0, "EXPERIENCE": 1, "PROJECTS": 2, "I
 const sidebarClosedWidth = 80, sidebarOpenWidth = 196;
 
 function setupSidebarLinks() {
-  const aboutSidebarLink = createSidebarLink($("#about"), "About Me", PagesEnum.ABOUT);
-  const experienceSidebarLink = createSidebarLink($("#experience"), "My Experience", PagesEnum.EXPERIENCE);
-  const projectsSidebarLink = createSidebarLink($("#projects"), "My Projects", PagesEnum.PROJECTS);
-  const interestsSidebarLink = createSidebarLink($("#interests"), "My Interests", PagesEnum.INTERESTS);
+  const aboutSidebarLink = createSidebarLink($(".about"), "About Me", PagesEnum.ABOUT);
+  const experienceSidebarLink = createSidebarLink($(".experience"), "My Experience", PagesEnum.EXPERIENCE);
+  const projectsSidebarLink = createSidebarLink($(".projects"), "My Projects", PagesEnum.PROJECTS);
+  const interestsSidebarLink = createSidebarLink($(".interests"), "My Interests", PagesEnum.INTERESTS);
   
   const pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page"), $("#interests-page") ];
   const sidebarLinks = [aboutSidebarLink, experienceSidebarLink, projectsSidebarLink, interestsSidebarLink];
@@ -23,7 +23,7 @@ function setupSidebar() {
   setupSidebarLinks();
 
   const sections = $(".section");
-  const sidebar = $("#sidebar");
+  const sidebar = $(".sidebar");
 
   if (/Mobi|Android/i.test(navigator.userAgent) || screen.width <= 575) {
     console.log("User on mobile device");
@@ -59,8 +59,8 @@ function setupMobileSidebar(sections, sidebar) {
   // remove margin from normal sidebar
   $(sections).css("margin-left", "0px");
 
-  $("#large-name").css("text-align", "left");
-  $('#mobile-button').show();
+  $(".large-name").css("text-align", "left");
+  $('.mobile-button').show();
   
   sidebar.hide();
   sidebar.addClass('inactive');
@@ -78,6 +78,7 @@ function setupMobileSidebar(sections, sidebar) {
   });
 
   $('.navbar-toggler').on('click', () => {
+    console.log('here');
     if (sidebar.is(':hidden')) {
       // prevent scrolling
       document.ontouchmove = (e) => { 
