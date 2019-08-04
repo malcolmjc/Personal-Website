@@ -1,6 +1,6 @@
 @import "sidebar-mobile.css";
 
-#sidebar {
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,20 +12,20 @@
   transition: width 0.6s;
 }
 
-#sidebar.inactive {
+.sidebar.inactive {
   width: 196px;
 }
 
-#sidebar.active {
+.sidebar.active {
   width: 80px;
   text-align: center;
 }
 
-#sidebar.inactive ul li a {
+.sidebar.inactive ul li a {
   text-align: left;
 }
 
-#sidebar.active ul li a {
+.sidebar.active ul li a {
   text-align: center;
 }
 
@@ -34,49 +34,49 @@
   max-height: 15vh;
 }
 
-#sidebar ul li a i {
+.sidebar ul li a i {
   margin-right: 0;
   display: block;
   font-size: 150%;
   margin-bottom: 5px;
 }
 
-#sidebar ul ul a {
+.sidebar ul ul a {
   padding: 10px;
 }
 
-#sidebar .sidebar-header {
+.sidebar .sidebar-header {
   padding: 10px;
   background: #4ca1af;
   min-height: 20vh;
   max-height: 20vh;
 }
 
-#sidebar ul li a {
+.sidebar ul li a {
   padding: 10px;
   display: block;
 }
 
-#sidebar.active div h2 {
+.sidebar.active div h2 {
   display: none;
 }
 
-#sidebar.active div strong {
+.sidebar.active div strong {
   display: block;
 }
 
-#sidebar.inactive div h2 {
+.sidebar.inactive div h2 {
   display: block;
 }
 
-#sidebar.inactive div strong {
+.sidebar.inactive div strong {
   display: none;
 }
 
-#sidebar.active .sidebar-link {
+.sidebar.active .sidebar-link {
   display: none;
 }
 
-#sidebar.inactive .sidebar-link {
+.sidebar.inactive .sidebar-link {
   display: block;
 }

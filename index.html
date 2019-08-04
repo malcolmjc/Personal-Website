@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <!-- 3rd Party Scripts -->
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   
@@ -32,36 +32,36 @@
 </head>
 
 <body>
-  <nav id="sidebar" class="active">
+  <nav class="sidebar" class="active">
     <div class="sidebar-header" style="text-align: center;">
-      <h2 id="large-name">Malcolm Craney</h2>
-      <strong id="small-name">MC</strong>
+      <h2 class="large-name">Malcolm Craney</h2>
+      <strong class="small-name">MC</strong>
     </div>
 
     <ul class="list-unstyled components">
       <li class="sidebar-section">
-        <a id="about" class="highlighted inpage-link">
+        <a class="about" class="highlighted inpage-link">
           <i class="fas fa-home"></i>
           <p class="sidebar-link">About</p>
         </a>
       </li>
 
       <li class="sidebar-section">
-        <a id="experience" class="inpage-link">
+        <a class="experience" class="inpage-link">
           <i class="fas fa-briefcase"></i>
           <p class="sidebar-link">Experience</p>
         </a>
       </li>
 
       <li class="sidebar-section">
-        <a id="projects" class="inpage-link">
+        <a class="projects" class="inpage-link">
           <i class="fas fa-project-diagram"></i>
           <p class="sidebar-link">Projects</p>
         </a>
       </li>
 
       <li class="sidebar-section">
-        <a id="interests" class="inpage-link">
+        <a class="interests" class="inpage-link">
           <i class="fas fa-futbol"></i>
           <p class="sidebar-link">Interests</p>
         </a>
@@ -70,8 +70,8 @@
   </nav>
 
   <!-- If the user is on mobile they get this instead of the above nav -->
-  <button id="mobile-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20" aria-controls="navbarSupportedContent20"
-    aria-expanded="false" aria-label="Toggle navigation" style="display: none;">
+  <button class="mobile-button navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
+    aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation" style="display: none;">
     <div class="animated-mobile-menu">
       <span></span><span></span><span></span>
     </div>  
@@ -79,12 +79,12 @@
 
   <div id="about-page">
     <div class="section" style="margin-left: 80px;">
-      <div id="about-me">
+      <div class="about-me">
         <div class="main-header">About Me</div>
         <hr>
-        <img src="images/about/me.jpg" id="profile-image" height="200" width="200">
+        <img src="images/about/me.jpg" class="profile-image" height="200" width="200">
         <br>
-        <div id="about-desc" class="left-border">
+        <div class="left-border">
             I'm Malcolm Craney, a fourth-year Software Engineering student at Cal Poly in San Luis Obispo, set to graduate <b>December 2019</b>. 
             When I'm not in California, you will likely find me in my hometown of Portland, OR. I originally started my career here at college in a different major,
             but soon realized my passion and appreciation for programming, computer science, and the mathematics behind it. What really
@@ -103,11 +103,11 @@
         <hr>
       
         <div class="below-desc">
-          <div id="surescripts">
-            <img src="images/experience/surescripts-logo.png" alt="Surescripts" height="120" id="surescripts-logo" class="company-logo">
-            <section id="surescripts-head">Software Engineering Intern</section>
+          <div>
+            <img src="images/experience/surescripts-logo.png" alt="Surescripts" height="120" class="company-logo">
+            <section>Software Engineering Intern</section>
 
-            <div class="left-border">
+            <div class="left-border experience-desc">
               This past summer, I had the awesome opportunity to work with Surescripts, the United States largest e-prescription network. I got to travel to their Minneapolis and Arlington Offices, 
               and worked out of Hillsboro for the majority of the summer. I got to work with, learn, and explore a variety of technologies. Over the course of the summer I developed a project capable of
               persisting and dynamically updating test details and history within company-wide JIRA issues. To accomplish this I used programming languages <b>Java</b>, <b>C#</b>, and <b>Javascript</b>, 
@@ -117,10 +117,10 @@
             </div>
           </div>
 
-          <div id="retail">
-            <section id="retail-head">Retail</section>
+          <div>
+            <section>Retail</section>
 
-            <div id="retail-desc" class="left-border">
+            <div class="left-border experience-desc">
               Although completely non-technical beyond working with PoS software, retail provided me with something a lot of software engineers are lacking: <b>soft skills</b>.
               Working retail was a great opportunity for me to develop my communication, interpersonal, and selling skills.  
             </div>
@@ -128,7 +128,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-5">
-                  <img src="images/experience/gap-logo.png" alt="Gap" height="120" id="gap-logo" class="company-logo">
+                  <img src="images/experience/gap-logo.png" alt="Gap" height="120" class="company-logo">
                   
                   <div class="experience-desc">
                     I worked at Gap during the summers of 2016 and 2017. I gained valuable teamwork and leadership skills by working on various projects. I also developed
@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="col-md-7">
-                  <img src="images/experience/jcpenney-logo.png" alt="JCPenney" height="120" id="jc-penney-logo" class="company-logo">
+                  <img src="images/experience/jcpenney-logo.png" alt="JCPenney" height="120" class="company-logo">
 
                   <div class="experience-desc">
                     Working at JCPenney in the Summer and Winter Break of 2015 was my first real experience in the corporate world.
@@ -150,11 +150,11 @@
             </div>
           </div>
 
-          <div id="dvi">
-            <img src="images/experience/dvi-logo.jpg" alt="DVI" height="120" id="dvi-logo" class="company-logo">
-            <section id="dvi-head">Summer 2014 Intern</section>
+          <div>
+            <img src="images/experience/dvi-logo.jpg" alt="DVI" height="120" class="company-logo">
+            <section>Summer 2014 Intern</section>
 
-            <div class="left-border" id="dvi-desc">
+            <div class="left-border experience-desc">
               In my first real job I got to work at Digital Vision Incorporated, a local and small software development company. Although I 
               didn't get to engineer any actual software, I did learn the basics of how a software company functions, which has definitely helped me 
               with the learning curve.
@@ -347,14 +347,14 @@
       <div>
         <div class="main-header">My Interests</div>
         <hr>
-        <div id="interests-desc" class="left-border">
+        <div class="left-border">
           When I'm not busy writing code, I find other ways to occupy my time.
         </div>
 
         <div class="below-desc">
-          <section id="sports">Sports</section>
-          <div id="sports-wrapper" class="pad-left">
-            <div id="sports-desc">
+          <section>Sports</section>
+          <div class="pad-left">
+            <div>
               <div class="container">
                 <div class="row">
                   <div class="col-md-8">
@@ -371,49 +371,49 @@
             </div>
           </div>
 
-          <section id="hiking">Hiking</section>
-          <div id="hiking-wrapper" class="pad-left">
-            <div id="hiking-desc">
+          <section>Hiking</section>
+          <div class="pad-left">
+            <div>
               <header>Central Coast</header>
               Living in San Luis Obispo while attending college gives me great opportunities to hike and appreciate nature. 
-              <div id="images-ca">
-                <img src="images/interests/hiking/mdo.jpg" alt="Hiking at Montana de Oro" height="300" width="400" id="beach-pic" title="Montana de Oro">
-                <img src="images/interests/hiking/waterfall.jpg" alt="Waterfall at Ragged Point" height="300" width="200" id="waterfall-pic" title="Big Sur Waterfall">
+              <div>
+                <img src="images/interests/hiking/mdo.jpg" alt="Hiking at Montana de Oro" height="300" width="400" title="Montana de Oro">
+                <img src="images/interests/hiking/waterfall.jpg" alt="Waterfall at Ragged Point" height="300" width="200" title="Big Sur Waterfall">
               </div>
 
               <header>Pacific Northwest</header>
               I've hiked all over Oregon and Southern Washington, including nearly every spot within the greater Portland area.
-              <div id="images-pnw">
+              <div>
                 <img src="images/interests/hiking/tryon-creek.jpg" alt="Green landscape at Tryon Creek" height="300" width="400" title="Tryon Creek">
                 <img src="images/interests/hiking/wash-hike.jpg" alt="Underneath a Waterfall at the Gorge" height="300" width="200" title="The Gorge">
               </div>
             </div>
           </div>
 
-          <section id="travel">Travel</section>
-          <div id="travel-wrapper" class="pad-left">
-            <div id="travel-desc">
+          <section>Travel</section>
+          <div class="pad-left">
+            <div>
               <header>International</header>
               In the words of Mark Twain, <q>Travel is fatal to prejudice, bigotry, and narrow-mindedness.</q>
               Visiting and experiencing the various cultures of our world is very important to me. Thus far I've been fortunate enough
               to visit Spain, Costa Rica, and Mexico. I'd love to visit more of Europe in the future.
-              <div id="images-spain">
+              <div>
                 <img src="images/interests/travel/fountain.jpg" alt="A fountain in Spain" height="300" width="400" title="Spain Fountain">
                 <img src="images/interests/travel/sagrada-familia.jpg" alt="The Sagrada Familia in Barcelona" height="300" width="200" title="La Sagrada Familia">
               </div>
 
               <header>U.S.</header>
               The majority of my traveling within the US has been limited to the West Coast, but I've been as far east as D.C. and way out west to Hawaii.
-              <div id="images-chi">
+              <div>
                 <img src="images/interests/travel/chicago.jpg" alt="The Chicago River" height="320" width="240" title="Chicago River">
                 <img src="images/interests/travel/dc.jpg" alt="The Washington Monument" title="The Washington Monument" height="320" width="240">
               </div>
             </div>
           </div>
 
-          <section id="music">Music</section>
-          <div id="music-wrapper" class="pad-left">
-            <div id="music-desc">
+          <section>Music</section>
+          <div class="pad-left">
+            <div>
               <div class="container">
                 <div class="row">
                   <div class="col-md-6">
@@ -435,11 +435,11 @@
   </div>
 
   <div class="navbar navbar-toggleable-md fixed-bottom bg-inverse justify-content-end">
-    <img id="email-img" class="navbarIcon" src="images/bottom-bar/email.png" data-toggle="tooltip" data-animation="true" alt="Email Me"
+    <img class="bottom-bar-img" class="navbarIcon" src="images/bottom-bar/email.png" data-toggle="tooltip" data-animation="true" alt="Email Me"
       style="display: none;" height=50 width=50 title="Email" onclick="window.open('mailto:mjcraney@calpoly.edu');">
-    <img id="linkedin-img" class="navbarIcon" src="images/bottom-bar/linkedin.png" data-toggle="tooltip" data-animation="true" 
+    <img class="bottom-bar-img" class="navbarIcon" src="images/bottom-bar/linkedin.png" data-toggle="tooltip" data-animation="true" 
       style="display: none;" alt="LinkedIn" height=50 width=50 title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/malcolm-craney-4a5491119/', '_blank');">
-    <img id="github-img" class="navbarIcon" src="images/bottom-bar/github.png" data-toggle="tooltip" data-animation="true" 
+    <img class="bottom-bar-img" class="navbarIcon" src="images/bottom-bar/github.png" data-toggle="tooltip" data-animation="true" 
       style="display: none;" alt="Github" height=50 width=50 title="Github" onclick="window.open('https://github.com/malcolmjc', '_blank');">
   </div>
 </body>
