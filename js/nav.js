@@ -42,7 +42,6 @@ function setupSidebarAnimations(sections, sidebar) {
     if (!hovered) {
       sidebar.addClass("inactive");
       sidebar.removeClass("active");
-      console.log($(sections));
       $(sections).css("margin-left", '' + sidebarOpenWidth + 'px');
       hovered = true;
     }
