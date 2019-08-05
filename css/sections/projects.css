@@ -1,11 +1,6 @@
 .project-card {
-  background-color: #4ca1af;
-  color: #ffff;
-  border-radius: 25px;
-  text-align: center;
-  padding: 2.5%;
-  margin: 2.5%;
   cursor: pointer;
+  width: 100%;
 }
 
 .tech-img {
@@ -22,4 +17,5 @@
 
 .project-card-header {
   font-size: 200%;
+  margin-top: 1rem;
 }
