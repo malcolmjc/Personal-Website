@@ -2,7 +2,7 @@ const primaryColor = "#4ca1af";
 const secondaryColor = "#fff";
 
 $(document).ready(() => {
-  setupSidebar();
+  startHomepage();
   setupSlideshows();
   setupProjectCards();
   setupBottomBar();
