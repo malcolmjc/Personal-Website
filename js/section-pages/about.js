@@ -16,7 +16,7 @@ const aboutPage = `
           <hr>
           <h2>3.5+ GPA</h2>
           <hr>
-          <p>
+          <p class="card-desc">
             Hi, I'm Malcolm, the creator of this website. I switched into software engineering a
             year and a half into my studies because I became so passionate about programming and computer science.
             I really couldn't see myself doing anything else for my full-time career. Unfortunately, this 

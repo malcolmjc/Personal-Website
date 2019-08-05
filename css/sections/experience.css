@@ -21,3 +21,11 @@
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+@media only screen and (max-device-width : 640px) {
+  .image-row img {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 46%;
+  }
+}

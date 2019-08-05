@@ -27,7 +27,7 @@ const projectsPage = `
           <img src="images/projects/ios-app/swift-logo.jpg" alt="Swift" class="tech-img">
 
           <div class="project-card-header">Description</div>
-          <div style="text-align: left;">
+          <div class="card-desc">
             A mobile application that allows for anonymous posts and group creation. Posts can be both in text format and 
             virtual AR Graffiti.
           </div>
@@ -60,7 +60,7 @@ const projectsPage = `
           <img src="images/projects/amazon-capstone/hibernate.png" alt="Hibernate" class="tech-img">
 
           <div class="project-card-header">Description</div>
-          <div style="text-align: left;">
+          <div class="card-desc">
             I'm leading an agile team of students to create an Android application for Amazon Handmade. The application 
             was given a strict set of requirements that we are fulfilling to give rural communities the opportunity to sell
             their products on the service. 
@@ -94,7 +94,7 @@ const projectsPage = `
           <img src="images/projects/graphics-game/visual-studio.png" alt="Visual Studio" class="tech-img">
 
           <div class="project-card-header">Description</div>
-          <div style="text-align: left;">
+          <div class="card-desc">
             This project set out to create a randomly generated 3d maze game that a user will have to run through.
             The user runs through the maze in a first person view, which is disorienting and makes the game more difficult.
             Along the way I also decided to add some stretch goals, like an AI that will chase after the player, and an edit mode 
@@ -125,7 +125,7 @@ const projectsPage = `
           <img src="images/projects/forrest-run/javascript.png" alt="JavaScript" class="tech-img">
 
           <div class="project-card-header">Description</div>
-          <div style="text-align: left;">
+          <div class="card-desc">
             An online platformer race with a unique twist: Team Based Racing. Each player within a team is given a unique role at the start of the 
             match. The racer runs through the map, the helper places objects that will help their racer, and the blocker places obstacles that will 
             slow down the other team's racer.
@@ -158,10 +158,10 @@ const projectsPage = `
           <img src="images/projects/multi-threaded-games/aws-logo.jpg" alt="AWS" class="tech-img-50">
 
           <div class="project-card-header">Description</div>
-          <div style="text-align: left;">
-              Constructed GUIs and gameplay mechanics for two common games - Chess & Chinese Checkers.
-              Enabled multiplayer connectivity with Sockets & AWS and gameplay with concurrency. Also developed
-              enemy AI that will play automatically for Chinese Checkers.
+          <div class="card-desc">
+            Constructed GUIs and gameplay mechanics for two common games - Chess & Chinese Checkers.
+            Enabled multiplayer connectivity with Sockets & AWS and gameplay with concurrency. Also developed
+            enemy AI that will play automatically for Chinese Checkers.
           </div>
         </div>
       </div>

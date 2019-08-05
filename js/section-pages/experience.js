@@ -49,9 +49,11 @@ const experiencePage = `
         <h2><b>Skills</b></h2>
         <h3>Communication, Conflict Resolution, Leadership, Teamwork</h3>
         <hr>
-        I worked at JCPenney during the Summer & Winter Break 2015, and Gap during Summer 2016 & 2017.
-        Working retail provided me with something that often gets forgotten in technical careers: soft skills.
-        Working retail was a great opportunity for me to develop my communication, interpersonal, and selling skills.
+        <p class="card-desc">
+          I worked at JCPenney during the Summer & Winter Break 2015, and Gap during Summer 2016 & 2017.
+          Working retail provided me with something that often gets forgotten in technical careers: soft skills.
+          Working retail was a great opportunity for me to develop my communication, interpersonal, and selling skills.
+        </p>
         </div>
       </div>
     </div>

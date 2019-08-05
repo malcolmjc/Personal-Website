@@ -37,15 +37,27 @@
   cursor: pointer;
 }
 
-.continue-arrow {
-  float: right;
-  padding-right: 12px;
-}
-
 .nav-title {
   font-size: 300%;
   text-align: center;
   height: 25%;
+}
+
+@media only screen and (max-device-width : 640px) {
+  .inpage-link-btn {
+    width: 90%;
+  }
+  h1 {
+    font-size: 200%;
+  }
+  .nav-title {
+    font-size: 200%;    
+  }
+}
+
+.continue-arrow {
+  float: right;
+  padding-right: 12px;
 }
 
 .full-width {
