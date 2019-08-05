@@ -1,13 +1,12 @@
-const PagesEnum = Object.freeze({ "ABOUT": 0, "EXPERIENCE": 1, "PROJECTS": 2, "INTERESTS": 3 });
+const PagesEnum = Object.freeze({ "ABOUT": 0, "EXPERIENCE": 1, "PROJECTS": 2 });
 
 function setupHomepageLinks() {
   const aboutHomepageLink = createHomepageLink($(".about"), "About Me", PagesEnum.ABOUT);
   const experienceHomepageLink = createHomepageLink($(".experience"), "My Experience", PagesEnum.EXPERIENCE);
   const projectsHomepageLink = createHomepageLink($(".projects"), "My Projects", PagesEnum.PROJECTS);
-  const interestsHomepageLink = createHomepageLink($(".interests"), "My Interests", PagesEnum.INTERESTS);
   
-  const pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page"), $("#interests-page") ];
-  const homepageLinks = [aboutHomepageLink, experienceHomepageLink, projectsHomepageLink, interestsHomepageLink];
+  const pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page") ];
+  const homepageLinks = [aboutHomepageLink, experienceHomepageLink, projectsHomepageLink];
   homepageLinks.forEach((homepageLink) => {
     homepageLink.elementRef.click(() => {
       switchPage(homepageLink.enumRef, homepageLink.pageTitle, pagesArr, homepageLinks);
