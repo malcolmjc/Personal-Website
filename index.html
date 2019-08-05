@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>About Me</title>
+  <title>Welcome</title>
 
   <link rel="shortcut icon" type="image/png" href="images/cpseal.ico">
 
@@ -38,49 +38,57 @@
 </head>
 
 <body>
-  <nav class="sidebar active">
-    <div class="sidebar-header" style="text-align: center;">
-      <h2 class="large-name">Malcolm Craney</h2>
-      <strong class="small-name">MC</strong>
+  <nav class="homepage">
+    <h1 class="nav-title fadein-right">What interests you?</h1>
+
+    <div hidden class="inpage-link-container fadein-left">
+      <div class="inpage-link-btn about" 
+        onmouseover="imageLinkButtonHover(this)"
+        onmouseleave="imageLinkButtonLeave(this)">
+        <a class="inpage-link">
+          <h1 class="inpage-link-title">Bio</h3>
+          <i hidden class="fas fa-arrow-right fa-3x continue-arrow fadein"></i>
+        </a>
+      </div>
     </div>
 
-    <ul class="list-unstyled components">
-      <li class="sidebar-section">
-        <a class="about" class="highlighted inpage-link">
-          <i class="fas fa-home"></i>
-          <p class="sidebar-link">About</p>
+    <div hidden class="inpage-link-container fadein-left">
+      <div class="inpage-link-btn experience" 
+        onmouseover="imageLinkButtonHover(this)"
+        onmouseleave="imageLinkButtonLeave(this)">
+        <a class="inpage-link">
+          <h1 class="inpage-link-title">Experience</h3>
+          <i hidden class="fas fa-arrow-right fa-3x continue-arrow fadein"></i>
         </a>
-      </li>
+      </div>
+    </div>
 
-      <li class="sidebar-section">
-        <a class="experience" class="inpage-link">
-          <i class="fas fa-briefcase"></i>
-          <p class="sidebar-link">Experience</p>
+    <div hidden class="inpage-link-container fadein-left">
+      <div class="inpage-link-btn projects"
+        onmouseover="imageLinkButtonHover(this)"
+        onmouseleave="imageLinkButtonLeave(this)">      
+        <a class="inpage-link">
+          <h1 class="inpage-link-title">Projects</h3>
+          <i hidden class="fas fa-arrow-right fa-3x continue-arrow fadein"></i>
         </a>
-      </li>
+      </div>
+    </div>
 
-      <li class="sidebar-section">
-        <a class="projects" class="inpage-link">
-          <i class="fas fa-project-diagram"></i>
-          <p class="sidebar-link">Projects</p>
+    <div hidden class="inpage-link-container fadein-left">
+      <div class="inpage-link-btn interests" 
+        onmouseover="imageLinkButtonHover(this)"
+        onmouseleave="imageLinkButtonLeave(this)">
+        <a class="inpage-link">
+          <h1 class="inpage-link-title">My Interests</h3>
+          <i hidden class="fas fa-arrow-right fa-3x continue-arrow fadein"></i>
         </a>
-      </li>
-
-      <li class="sidebar-section">
-        <a class="interests" class="inpage-link">
-          <i class="fas fa-futbol"></i>
-          <p class="sidebar-link">Interests</p>
-        </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </nav>
 
-  <!-- If the user is on mobile they get this instead of the above nav -->
-  <button class="mobile-button navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
+  <button hidden class="home-button navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
     aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
-    <div class="animated-mobile-menu">
-      <span></span><span></span><span></span>
-    </div>  
+    <i class="fas fa-home fa-3x fadein"></i>
   </button>
 
   <div id="about-page"></div>
