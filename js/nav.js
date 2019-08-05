@@ -1,103 +1,70 @@
-const PagesEnum = Object.freeze({ "ABOUT": 0, "EXPERIENCE": 1, "PROJECTS": 2, "INTERESTS": 3 });
-const sidebarClosedWidth = 80, sidebarOpenWidth = 196;
+const PagesEnum = Object.freeze({ "ABOUT": 0, "EXPERIENCE": 1, "PROJECTS": 2 });
 
-function setupSidebarLinks() {
-  const aboutSidebarLink = createSidebarLink($(".about"), "About Me", PagesEnum.ABOUT);
-  const experienceSidebarLink = createSidebarLink($(".experience"), "My Experience", PagesEnum.EXPERIENCE);
-  const projectsSidebarLink = createSidebarLink($(".projects"), "My Projects", PagesEnum.PROJECTS);
-  const interestsSidebarLink = createSidebarLink($(".interests"), "My Interests", PagesEnum.INTERESTS);
+function setupHomepageLinks() {
+  const aboutHomepageLink = createHomepageLink($(".about"), "About Me", PagesEnum.ABOUT);
+  const experienceHomepageLink = createHomepageLink($(".experience"), "My Experience", PagesEnum.EXPERIENCE);
+  const projectsHomepageLink = createHomepageLink($(".projects"), "My Projects", PagesEnum.PROJECTS);
   
-  const pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page"), $("#interests-page") ];
-  const sidebarLinks = [aboutSidebarLink, experienceSidebarLink, projectsSidebarLink, interestsSidebarLink];
-  sidebarLinks.forEach((sidebarLink) => {
-    sidebarLink.elementRef.click(() => {
-      switchPage(sidebarLink.enumRef, sidebarLink.pageTitle, pagesArr, sidebarLinks);
+  const pagesArr = [ $("#about-page"), $("#experience-page"), $("#projects-page") ];
+  const homepageLinks = [aboutHomepageLink, experienceHomepageLink, projectsHomepageLink];
+  homepageLinks.forEach((homepageLink) => {
+    homepageLink.elementRef.click(() => {
+      switchPage(homepageLink.enumRef, homepageLink.pageTitle, pagesArr, homepageLinks);
     });
   });
-
-  aboutSidebarLink.elementRef.css("color", primaryColor);
-  aboutSidebarLink.elementRef.css("background", secondaryColor);
 }
 
-function setupSidebar() {
-  setupSidebarLinks();
-
-  const sections = $(".section");
-  const sidebar = $(".sidebar");
-
-  if (/Mobi|Android/i.test(navigator.userAgent) || screen.width <= 575) {
-    console.log("User on mobile device");
-    console.log("Disabling sidebar expansion");
-
-    setupMobileSidebar(sections, sidebar);
-    return;
-  }
-
-  setupSidebarAnimations(sections, sidebar);
-}
-
-function setupSidebarAnimations(sections, sidebar) {
-  let hovered = false;
-  sidebar.hover(() => {
-    if (!hovered) {
-      sidebar.addClass("inactive");
-      sidebar.removeClass("active");
-      $(sections).css("margin-left", '' + sidebarOpenWidth + 'px');
-      hovered = true;
-    }
-  });
-
-  sidebar.mouseleave(() => {
-    hovered = false;
-    sidebar.addClass("active");
-    sidebar.removeClass("inactive");
-    $(sections).css("margin-left", '' + sidebarClosedWidth + 'px');
+function showHomepageButtons() {
+  $.each($('.inpage-link-container'), (index, link) => {
+    setTimeout(() => {
+      $(link).removeAttr('hidden');
+    }, (index + 1) * 700);
   });
 }
 
-function setupMobileSidebar(sections, sidebar) {
-  // remove margin from normal sidebar
-  $(sections).css("margin-left", "0px");
+function showBottomBar() {
+  $.each($(".bottom-bar-img"), (index, image) => {
+    setTimeout(() => {
+      $( image ).show(500);
+    }, 300 * (index + 1));
+  });
+}
 
-  $(".large-name").css("text-align", "left");
-  $('.mobile-button').show();
-  
-  sidebar.hide();
-  sidebar.addClass('inactive');
-  sidebar.removeClass('active');
-  sidebar.css('width', '100%');
+function hideBottomBar() {
+  $.each($(".bottom-bar-img"), (index, image) => {
+    $(image).hide();
+  });
+}
 
-  // if link is clicked close sidebar
-  $('.inpage-link').on('click', () => {
-    sidebar.hide()
-    // enable scrolling
-    document.ontouchmove = (e) => { 
-      return true;
-    }
-    $('.animated-mobile-menu').toggleClass('open');
+function startHomepage() {
+  showHomepageButtons();
+  setupHomepageLinks();
+  setupHomepage($(".homepage"));
+}
+
+function setupHomepage(homepage) {
+  // if link is clicked close homepage
+  $('.inpage-link-btn' ).on('click', () => {
+    homepage.hide();
   });
 
   $('.navbar-toggler').on('click', () => {
-    console.log('here');
-    if (sidebar.is(':hidden')) {
-      // prevent scrolling
-      document.ontouchmove = (e) => { 
-        e.preventDefault(); 
-      }
-      sidebar.show();
-    } else {
-      sidebar.hide();
-      // enable scrolling
-      document.ontouchmove = (e) => { 
-        return true;
-      }
-    }
-
-    $('.animated-mobile-menu').toggleClass('open');  
+    $('.home-button').attr('hidden', 'true');
+    disableScroll();
+    hideBottomBar();
+    homepage.show();
   });
 }
 
-function createSidebarLink(elementRef, pageTitle, enumRef) {
+function disableScroll() {
+  $('body').css('overflow', 'hidden');
+}
+
+function enableScroll() {
+  $('body').css('overflow', 'auto');
+}
+
+function createHomepageLink(elementRef, pageTitle, enumRef) {
   return {
     elementRef: elementRef,
     pageTitle: pageTitle,
@@ -105,19 +72,48 @@ function createSidebarLink(elementRef, pageTitle, enumRef) {
   };
 }
 
-function switchPage(selectedPage, pageTitle, pagesArr, sidebarLinks) {
+function switchPage(selectedPage, pageTitle, pagesArr, homepageLinks) {
+  $( '.home-button' ).removeAttr('hidden');
+  enableScroll();
+  showBottomBar();
+
   pagesArr.forEach((page, index) => {
-    const pageLink = sidebarLinks[index].elementRef;
-    if (index != selectedPage) {
+    if (index !== selectedPage) {
       page.hide();
-      pageLink.css("color", secondaryColor);
-      pageLink.css("background", primaryColor);
     } else {
       page.show();
-      pageLink.css("color", primaryColor);
-      pageLink.css("background", secondaryColor);
       document.title = pageTitle;
     }
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   });
+}
+
+function imageLinkButtonHover(elem) {
+  elem.style.opacity = 0.8;
+
+  const imageLink = elem.children[0];
+  if (!imageLink) {
+    return;
+  }
+
+  for (let child of imageLink.children) {
+    if (child.tagName === 'svg' && child.hasAttribute('hidden')) {
+      child.removeAttribute('hidden');
+    }
+  }
+}
+
+function imageLinkButtonLeave(elem) {
+  elem.style.opacity = 1.0;
+
+  const imageLink = elem.children[0];
+  if (!imageLink) {
+    return;
+  }
+
+  for (let child of imageLink.children) {
+    if (child.tagName === 'svg' && !child.hasAttribute('hidden')) {
+      child.setAttribute('hidden', 'true');
+    }
+  }
 }

@@ -5,6 +5,27 @@
   margin-bottom: 3.5vh;
 }
 
-.experience-desc {
-  margin-bottom: 2rem;
+.surescripts-project {
+  text-align: left;
+}
+
+.experience-header {
+  margin-top: 1rem;
+}
+
+.image-row {
+  margin: auto;
+}
+
+.image-row img {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media only screen and (max-device-width : 640px) {
+  .image-row img {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 46%;
+  }
 }

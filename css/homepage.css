@@ -1,0 +1,72 @@
+@import "animations.css";
+
+.homepage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  z-index: 100000;
+  background: #4ca1af;
+  color: #fff;
+  padding-top: 5vh;
+}
+
+.inpage-link-container {
+  width: 100%;
+  height: 25%;
+  text-align: center;
+}
+
+.inpage-link-title {
+  display: inline-block;
+}
+
+.inpage-link {
+  margin: auto;
+  height: 100%;
+}
+
+.inpage-link-btn {
+  width: 50%;
+  margin: auto;
+  border: 3px solid #fff;
+  background-color: #253D98; 
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+.nav-title {
+  font-size: 300%;
+  text-align: center;
+  height: 25%;
+}
+
+@media only screen and (max-device-width : 640px) {
+  .inpage-link-btn {
+    width: 90%;
+  }
+  h1 {
+    font-size: 200%;
+  }
+  .nav-title {
+    font-size: 200%;    
+  }
+}
+
+.continue-arrow {
+  float: right;
+  padding-right: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.home-button {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 1000000 !important;
+}

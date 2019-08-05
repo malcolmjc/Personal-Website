@@ -20,9 +20,5 @@ function setupBottomBar() {
       image.css("height", smallSize);
       image.css("width", smallSize);
     });
-
-    setTimeout(() => {
-      image.show(500);
-    }, 300 * (index + 1));
   });
 }
