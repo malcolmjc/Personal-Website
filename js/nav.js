@@ -25,17 +25,11 @@ function showHomepageButtons() {
 }
 
 function showBottomBar() {
-  $.each($(".bottom-bar-img"), (index, image) => {
-    setTimeout(() => {
-      $( image ).show(500);
-    }, 300 * (index + 1));
-  });
+  $(".bottom-bar-img").show();
 }
 
 function hideBottomBar() {
-  $.each($(".bottom-bar-img"), (index, image) => {
-    $(image).hide();
-  });
+  $(".bottom-bar-img").hide();
 }
 
 function startHomepage() {
@@ -91,7 +85,9 @@ function imageLinkButtonHover(elem) {
     return;
   }
 
-  for (let child of imageLink.children) {
+  // IE doesn't support .children iterator - IE is not for the children like Wu Tang
+  for (let i = 0; i < imageLink.children.length; i++) {
+    child = imageLink.children[i];
     if (child.tagName === 'svg' && child.hasAttribute('hidden')) {
       child.removeAttribute('hidden');
     }
@@ -106,7 +102,8 @@ function imageLinkButtonLeave(elem) {
     return;
   }
 
-  for (let child of imageLink.children) {
+  for (let i = 0; i < imageLink.children.length; i++) {
+    child = imageLink.children[i];
     if (child.tagName === 'svg' && !child.hasAttribute('hidden')) {
       child.setAttribute('hidden', 'true');
     }
