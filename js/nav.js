@@ -25,16 +25,27 @@ function showHomepageButtons() {
 }
 
 function showBottomBar() {
-  $.each($(".bottom-bar-img"), (index, image) => {
-    setTimeout(() => {
-      $( image ).show(500);
-    }, 300 * (index + 1));
-  });
+  let index = 1;
+  const bottomBarImages = document.getElementById('bottom-bar-images').children;
+  if (bottomBarImages) {
+    for (let image of document.getElementById('bottom-bar-images').children) {
+      setTimeout(() => {
+        $( image ).show(500);
+      }, 300 * index++);
+    };
+  } else {
+    // IE doesn't support .children - IE is not for the children like Wu Tang
+    $.each($(".bottom-bar-img"), (index, image) => {
+      setTimeout(() => {
+        $( image ).show(500);
+      }, 300 * (index + 1));
+    });
+  }
 }
 
 function hideBottomBar() {
   $.each($(".bottom-bar-img"), (index, image) => {
-    $(image).hide();
+    $( image ).hide();
   });
 }
 
