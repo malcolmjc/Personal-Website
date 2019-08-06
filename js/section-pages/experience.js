@@ -3,7 +3,7 @@ const experiencePage = `
   <div class="container margin-top-md">
     <div class="row">
       <div class="col-md-10 card bio"> 
-        <img src="images/experience/surescripts-logo.png" alt="Surescripts" height="120" class="company-logo">
+        <img src="images/experience/surescripts-logo.png" alt="Surescripts" height="120" width="500" class="company-logo">
         <hr>
         <h1>Software Engineering Intern</h1>
         <hr>
