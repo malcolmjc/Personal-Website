@@ -12,6 +12,8 @@ function setupHomepageLinks() {
       switchPage(homepageLink.enumRef, homepageLink.pageTitle, pagesArr, homepageLinks);
     });
   });
+
+  return pagesArr;
 }
 
 function showHomepageButtons() {
@@ -38,11 +40,11 @@ function hideBottomBar() {
 
 function startHomepage() {
   showHomepageButtons();
-  setupHomepageLinks();
-  setupHomepage($(".homepage"));
+  const pagesArr = setupHomepageLinks();
+  setupHomepage($(".homepage"), pagesArr);
 }
 
-function setupHomepage(homepage) {
+function setupHomepage(homepage, pagesArr) {
   // if link is clicked close homepage
   $('.inpage-link-btn' ).on('click', () => {
     homepage.hide();
@@ -50,18 +52,12 @@ function setupHomepage(homepage) {
 
   $('.navbar-toggler').on('click', () => {
     $('.home-button').attr('hidden', 'true');
-    disableScroll();
+    pagesArr.forEach((page) => {
+      page.hide();
+    });
     hideBottomBar();
     homepage.show();
   });
-}
-
-function disableScroll() {
-  $('body').css('overflow', 'hidden');
-}
-
-function enableScroll() {
-  $('body').css('overflow', 'auto');
 }
 
 function createHomepageLink(elementRef, pageTitle, enumRef) {
@@ -74,7 +70,6 @@ function createHomepageLink(elementRef, pageTitle, enumRef) {
 
 function switchPage(selectedPage, pageTitle, pagesArr, homepageLinks) {
   $( '.home-button' ).removeAttr('hidden');
-  enableScroll();
   showBottomBar();
 
   pagesArr.forEach((page, index) => {
