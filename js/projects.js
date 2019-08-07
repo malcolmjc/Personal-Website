@@ -1,29 +1,26 @@
 const slideshowTimeout = 2500;
-const animationHideTime = 300;
+const animationHideTime = 0;
 const animationShowTime = 500;
 
-function setupSlideshows() {
-  const loop = (slideshow) => {
-  for (let i = 1; i < slideshow.length; i++) {
-      const storedIndex = i;
-      setTimeout(() => {
-        $(slideshow[storedIndex - 1]).hide(animationHideTime);
-        $(slideshow[storedIndex]).show(animationShowTime);
-        if (storedIndex + 1 == slideshow.length) {
-          setTimeout(() => {
-              $(slideshow[slideshow.length - 1]).hide(animationHideTime);
-              $(slideshow[0]).show(animationShowTime);
-              loop(slideshow);
-          }, slideshowTimeout);
-        }
-      }, slideshowTimeout * i);
-    }
+activeLoops = []
+function loop(slideshow) {
+  if (activeLoops.includes(slideshow.id)) {
+    return;
   }
-
-  const slideshows = [$(".ios-slideshow"), $(".android-slideshow"), $(".dye-stats-slideshow")];
-  slideshows.forEach((slideshow) => {
-    loop(slideshow);
-  });
+  activeLoops.push(slideshow.id);
+  $(slideshow.children[slideshow.children.length - 1]).hide(slideshowTimeout - animationShowTime);
+  for (let i = 1; i <= slideshow.children.length; i++) {
+    const storedIndex = i;
+    setTimeout(() => {
+      if (storedIndex < slideshow.children.length) {
+        $(slideshow.children[storedIndex - 1]).hide(animationHideTime);
+        $(slideshow.children[storedIndex]).show(animationShowTime);
+      } else {
+        const index = activeLoops.indexOf(slideshow.id);
+        activeLoops.splice(index, 1);
+      }
+    }, slideshowTimeout * i);
+  }
 }
 
 function setupProjectCards() {
@@ -68,6 +65,7 @@ function buildSlideshowString(projectImageLinks, slideshowClass) {
 
 function buildProjects() {
   const dyeStats = {
+    id: 'dye-stats',
     projectImageLinks: [
       'images/projects/dye-stats/add-game.png',
       'images/projects/dye-stats/group-stats.png',
@@ -91,6 +89,7 @@ function buildProjects() {
   };
 
   const iosApp = {
+    id: 'ios-app',
     projectImageLinks: [
       'images/projects/ios-app/posts-phone.png',
       'images/projects/ios-app/ar-change.png',
@@ -112,6 +111,7 @@ function buildProjects() {
   };
 
   const androidApp = {
+    id: 'android-app',
     projectImageLinks: [
       'images/projects/amazon-capstone/login.png',
       'images/projects/amazon-capstone/artisans.png',
@@ -135,6 +135,7 @@ function buildProjects() {
   };
 
   const graphicsMaze = {
+    id: 'graphics-maze',
     projectImageLinks: [
       'images/projects/graphics-game/maze.png'
     ],
@@ -155,6 +156,7 @@ function buildProjects() {
   };
 
   const forestRun = {
+    id: 'forrest-run',
     projectImageLinks: [
       'images/projects/forrest-run/forest-run.png'
     ],
@@ -174,6 +176,7 @@ function buildProjects() {
   };
 
   const chineseCheckers = {
+    id: 'chinese-checkers',
     projectImageLinks: [
       'images/projects/multi-threaded-games/chinese-checkers.png'
     ],
@@ -190,6 +193,7 @@ function buildProjects() {
   };
 
   const chess = {
+    id: 'chess',
     projectImageLinks: [
       'images/projects/multi-threaded-games/chess.png',
     ],
@@ -233,12 +237,18 @@ function buildGithubSection(githubLink) {
   </div>`;
 }
 
-function buildProjectCardContents(projectTitle, slideshowString, githubLink, techImagesString, description) {
+function possibleAdditionalEvent(slideshowString) {
+  if (slideshowString.split('\n').length <= 1) {
+    return '';
+  }
+  return 'onmouseover="loop(this)"';
+}
+function buildProjectCardContents(projectTitle, slideshowString, githubLink, techImagesString, description, projectId) {
   return `
   <div class="project-card-front">
     <h1>${projectTitle}</h1>
     <hr>
-    <div class="project-card-images" style="height: 400px">
+    <div id="${projectId}" class="project-card-images" style="height: 400px" ${possibleAdditionalEvent(slideshowString)}>
       ${slideshowString}
     </div>
   </div>
@@ -263,7 +273,7 @@ function buildProjectFullWidth(project) {
   <div class="container margin-top-md">
     <div class="row">
       <div class="col-md-12 project-card card">
-        ${buildProjectCardContents(project.projectTitle, slideshowString, project.githubLink, techImagesString, project.description)}
+        ${buildProjectCardContents(project.projectTitle, slideshowString, project.githubLink, techImagesString, project.description, project.id)}
       </div>
     </div>
   </div>`
@@ -280,10 +290,10 @@ function buildProjectsFullWidth(projectOne, projectTwo) {
   <div class="container margin-top-md">
     <div class="row card-row">
       <div class="col-md-5 project-card card">
-        ${buildProjectCardContents(projectOne.projectTitle, slideshowStringOne, projectOne.githubLink, techImagesStringOne, projectOne.description)}
+        ${buildProjectCardContents(projectOne.projectTitle, slideshowStringOne, projectOne.githubLink, techImagesStringOne, projectOne.description, projectOne.id)}
       </div>
       <div class="col-md-5 project-card card">
-        ${buildProjectCardContents(projectTwo.projectTitle, slideshowStringTwo, projectTwo.githubLink, techImagesStringTwo, projectTwo.description)}
+        ${buildProjectCardContents(projectTwo.projectTitle, slideshowStringTwo, projectTwo.githubLink, techImagesStringTwo, projectTwo.description, projectTwo.id)}
       </div>
     </div>
   </div>`
