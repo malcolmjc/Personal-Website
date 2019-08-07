@@ -8,7 +8,8 @@ function loop(slideshow) {
     return;
   }
   activeLoops.push(slideshow.id);
-  $(slideshow.children[slideshow.children.length - 1]).hide(slideshowTimeout - animationShowTime);
+  $(slideshow.children[slideshow.children.length - 1]).hide(animationHideTime);
+  $(slideshow.children[0]).show(animationShowTime);
   for (let i = 1; i <= slideshow.children.length; i++) {
     const storedIndex = i;
     setTimeout(() => {
@@ -238,29 +239,29 @@ function buildGithubSection(githubLink) {
 }
 
 function possibleAdditionalEvent(slideshowString) {
-  if (slideshowString.split('\n').length <= 1) {
+  if (slideshowString.split('\n').length <= 2) {
     return '';
   }
   return 'onmouseover="loop(this)"';
 }
-function buildProjectCardContents(projectTitle, slideshowString, githubLink, techImagesString, description, projectId) {
+function buildProjectCardContents(project, slideshowString, techImagesString) {
   return `
   <div class="project-card-front">
-    <h1>${projectTitle}</h1>
+    <h1>${project.projectTitle}</h1>
     <hr>
-    <div id="${projectId}" class="project-card-images" style="height: 400px" ${possibleAdditionalEvent(slideshowString)}>
+    <div id="${project.id}" class="project-card-images" style="height: 400px" ${possibleAdditionalEvent(slideshowString)}>
       ${slideshowString}
     </div>
   </div>
   <div class="project-card-back" style="display: none">
-    ${buildGithubSection(githubLink)}
+    ${buildGithubSection(project.githubLink)}
 
     <div class="project-card-header">Technologies</div>
     ${techImagesString}
 
     <div class="project-card-header">Description</div>
     <div class="card-desc">
-      ${description}
+      ${project.description}
     </div>
   </div>`;
 }
@@ -273,7 +274,7 @@ function buildProjectFullWidth(project) {
   <div class="container margin-top-md">
     <div class="row">
       <div class="col-md-12 project-card card">
-        ${buildProjectCardContents(project.projectTitle, slideshowString, project.githubLink, techImagesString, project.description, project.id)}
+        ${buildProjectCardContents(project, slideshowString, techImagesString)}
       </div>
     </div>
   </div>`
@@ -290,10 +291,10 @@ function buildProjectsFullWidth(projectOne, projectTwo) {
   <div class="container margin-top-md">
     <div class="row card-row">
       <div class="col-md-5 project-card card">
-        ${buildProjectCardContents(projectOne.projectTitle, slideshowStringOne, projectOne.githubLink, techImagesStringOne, projectOne.description, projectOne.id)}
+        ${buildProjectCardContents(projectOne, slideshowStringOne, techImagesStringOne)}
       </div>
       <div class="col-md-5 project-card card">
-        ${buildProjectCardContents(projectTwo.projectTitle, slideshowStringTwo, projectTwo.githubLink, techImagesStringTwo, projectTwo.description, projectTwo.id)}
+        ${buildProjectCardContents(projectTwo, slideshowStringTwo, techImagesStringTwo)}
       </div>
     </div>
   </div>`
