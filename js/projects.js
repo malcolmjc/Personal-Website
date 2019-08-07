@@ -4,7 +4,6 @@ const animationShowTime = 500;
 
 activeLoops = []
 function loop(slideshow) {
-  console.log(activeLoops);
   if (activeLoops.includes(slideshow.id)) {
     return;
   }
