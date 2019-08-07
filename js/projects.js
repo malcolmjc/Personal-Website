@@ -20,7 +20,7 @@ function setupSlideshows() {
     }
   }
 
-  const slideshows = [$(".ios-slideshow"), $(".android-slideshow")];
+  const slideshows = [$(".ios-slideshow"), $(".android-slideshow"), $(".dye-stats-slideshow")];
   slideshows.forEach((slideshow) => {
     loop(slideshow);
   });
@@ -67,6 +67,29 @@ function buildSlideshowString(projectImageLinks, slideshowClass) {
 }
 
 function buildProjects() {
+  const dyeStats = {
+    projectImageLinks: [
+      'images/projects/dye-stats/add-game.png',
+      'images/projects/dye-stats/group-stats.png',
+      'images/projects/dye-stats/group.png',
+      'images/projects/dye-stats/groups.png',
+      'images/projects/dye-stats/leaderboard.png',
+      'images/projects/dye-stats/signup.png'
+    ],
+    slideshowClass: 'dye-stats-slideshow',
+    techImageLinks: [
+      'images/projects/forrest-run/node-js.png',
+      'images/projects/dye-stats/angular.png',
+      'images/projects/dye-stats/mongodb.jpg'
+    ],
+    projectTitle: 'Dye Stats (Ongoing)',
+    description: `
+      A full stack web app built with the MEAN stack. A beta version is going to be
+      released very soon via AWS.
+    `,
+    githubLink: 'https://github.com/malcolmjc/Stat-Tracking-App'
+  };
+
   const iosApp = {
     projectImageLinks: [
       'images/projects/ios-app/posts-phone.png',
@@ -183,7 +206,8 @@ function buildProjects() {
     githubLink: null
   };
 
-  return buildProjectsFullWidth(iosApp, androidApp) + 
+  return buildProjectFullWidth(dyeStats) + 
+         buildProjectsFullWidth(iosApp, androidApp) + 
          buildProjectsFullWidth(graphicsMaze, forestRun) + 
          buildProjectsFullWidth(chineseCheckers, chess);
 }
