@@ -3,12 +3,33 @@ const experiencePage = `
   <div class="container margin-top-md">
     <div class="row">
       <div class="col-md-10 card bio"> 
+        <img src="images/experience/comscore-logo.png" alt="Comscore" height="100" width="500" class="company-logo">
+        <hr>
+        <h1>Software Engineering Intern</h1>
+        <hr>
+        <h2><b>Skills</b></h2>
+        <h3>Angular, Node.js, Git, Jira, Teamwork</h3>
+        <hr>
+        <h2><b>Languages</b></h2>
+        <h3>TypeScript, JavaScript, Python</h3>
+        <hr>
+        <p class="card-desc">
+          Worked on the frontend team to produce high-quality artifacts. Learned advanced source control
+          techniques and how to better produce artifacts in a team environment. Produced an extensible UI
+          Library to be reused across various teams.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container margin-top-md">
+    <div class="row">
+      <div class="col-md-10 card bio"> 
         <img src="images/experience/surescripts-logo.png" alt="Surescripts" height="120" width="500" class="company-logo">
         <hr>
         <h1>Software Engineering Intern</h1>
         <hr>
         <h2><b>Skills</b></h2>
-        <h3>Web Dev, OOP, JPA, .NET, Git, Docker, OAuth</h3>
+        <h3>Web Dev, OOP, Jira, JPA, .NET, Git, Docker, OAuth</h3>
         <hr>
         <h2><b>Testing Frameworks</b></h2>
         <h3>Selenium, JUnit, xUnit, NUnit, SpecFlow</h3>
